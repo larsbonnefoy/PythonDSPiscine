@@ -18,23 +18,32 @@ def main():
         space = 0
         digit = 0
         for character in string_to_parse:
-            if ord('A') <= ord(character) <= ord('Z'):
+            if ord("A") <= ord(character) <= ord("Z"):
                 upper = upper + 1
-            elif ord('a') <= ord(character) <= ord('z'):
+            elif ord("a") <= ord(character) <= ord("z"):
                 lower = lower + 1
-            elif ord('0') <= ord(character) <= ord('9'):
+            elif ord("0") <= ord(character) <= ord("9"):
                 digit = digit + 1
             elif ord(character) == 32:
                 space = space + 1
             elif is_punctuation(character):
                 punctuation = punctuation + 1
         sum = multi_sum(upper, lower, punctuation, space, digit)
-        print("The text contains " + str(sum) + "characters:\n" +
-                str(upper) + "upper letters" +
-                str(lower) + "upper letters" +
-                str(punctuation) + "punctuation mark" +
-                str(space) + "spaces" +
-                str(digit) + "digits")
+        print(
+            "The text contains "
+            + str(sum)
+            + "characters:\n"
+            + str(upper)
+            + "upper letters"
+            + str(lower)
+            + "upper letters"
+            + str(punctuation)
+            + "punctuation mark"
+            + str(space)
+            + "spaces"
+            + str(digit)
+            + "digits"
+        )
     except AssertionError as e:
         print(f"AssertionError: {e}")
     return 1
@@ -52,12 +61,14 @@ def multi_sum(*args):
 
 def is_punctuation(char):
     """
-        Checks if character is a punctuation mark
+    Checks if character is a punctuation mark
     """
-    return (33 <= ord(char) <= 47 or
-            58 <= ord(char) <= 64 or
-            91 <= ord(char) <= 96 or
-            123 <= ord(char) <= 126)
+    return (
+        33 <= ord(char) <= 47
+        or 58 <= ord(char) <= 64
+        or 91 <= ord(char) <= 96
+        or 123 <= ord(char) <= 126
+    )
 
 
 def get_input_string() -> str:
