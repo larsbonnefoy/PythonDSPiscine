@@ -6,28 +6,6 @@ import numpy as np
 
 def rbg_to_gray(img):
     """
-        One way of changing all 3 channels to a combination of greyscale
-    """
-    grayImage = np.zeros(img.shape)
-    R = np.array(img[:, :, 0])
-    G = np.array(img[:, :, 1])
-    B = np.array(img[:, :, 2])
-
-    R = R * 0.299
-    G = G * 0.587
-    B = B * 0.114
-
-    Avg = R + G + B
-    grayImage = img.copy()
-
-    for i in range(3):
-        grayImage[:, :, i] = Avg
-
-    return grayImage
-
-
-def rbg_to_gray2(img):
-    """
         Dot product on 3 channels to produce gray scale
         -> requires 'cmap=grey' in plot function
     """
@@ -45,8 +23,21 @@ def cut_grey_image(
         startY: startY + squareSize,
         startX: startX + squareSize,
     ]
-    grayImage = rbg_to_gray2(zoomedImg)
+    grayImage = rbg_to_gray(zoomedImg)
     return grayImage
+
+
+def ft_transpose(img: np.array) -> np.array:
+    """
+        Transposes input array to produce a new array
+    """
+
+    rows, cols = img.shape
+    transposed_array = np.empty((cols, rows), dtype=img.dtype)
+    for i in range(rows):
+        for j in range(cols):
+            transposed_array[j, i] = img[i, j]
+    return transposed_array
 
 
 def main():
@@ -55,9 +46,11 @@ def main():
     print(f"Y = {np.shape(img)[0]}")
     print(f"X = {np.shape(img)[1]}")
     print(f"Number of channels = {np.shape(img)[2]}")
-    finalImage = cut_grey_image(img, 50, 400, 400)
-    print(f"New shape after slicing= {np.shape(finalImage)}")
-    plt.imshow(finalImage, cmap='gray', vmin=0, vmax=255)
+    cut_image = cut_grey_image(img, 50, 400, 400)
+    transpose_image = ft_transpose(cut_image)
+    # print(transpose_image)
+    print(f"New shape after transpose = {np.shape(transpose_image)}")
+    plt.imshow(transpose_image, cmap='gray', vmin=0, vmax=255)
     plt.show()
 
 
