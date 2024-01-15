@@ -46,7 +46,9 @@ def main():
         )
     except AssertionError as e:
         print(f"AssertionError: {e}")
-    return 1
+    except EOFError:
+        return 1
+    return 0
 
 
 def multi_sum(*args):
