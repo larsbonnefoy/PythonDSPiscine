@@ -3,12 +3,12 @@ takes a single string argument and displays the sums of its upper-case
 characters, lower-case characters, punctuation characters, digits and spaces.
 """
 
-import sys
+from sys import argv
 
 
 def main():
     """
-    Main of building.py
+        Main of building.py
     """
     try:
         string_to_parse = get_input_string()
@@ -18,17 +18,17 @@ def main():
         space = 0
         digit = 0
         for character in string_to_parse:
-            if ord("A") <= ord(character) <= ord("Z"):
-                upper = upper + 1
-            elif ord("a") <= ord(character) <= ord("z"):
-                lower = lower + 1
-            elif ord("0") <= ord(character) <= ord("9"):
-                digit = digit + 1
-            elif ord(character) == 32:
-                space = space + 1
+            if character.isupper():
+                upper += 1
+            elif character.islower():
+                lower += 1
+            elif character.isdigit():
+                digit += 1
+            elif character == ' ':
+                space += 1
             elif is_punctuation(character):
-                punctuation = punctuation + 1
-        sum = multi_sum(upper, lower, punctuation, space, digit)
+                punctuation += 1
+        sum = len(string_to_parse)
         print(
             "The text contains "
             + str(sum)
@@ -46,6 +46,7 @@ def main():
         )
     except AssertionError as e:
         print(f"AssertionError: {e}")
+        return 1
     except EOFError:
         return 1
     return 0
@@ -80,11 +81,11 @@ def get_input_string() -> str:
     If no argument is provided prompts user to given an argument
     If more than 1 argument is provided throws an error
     """
-    match len(sys.argv):
+    match len(argv):
         case 1:
             input_string = input("What is the text to count?\n")
         case 2:
-            input_string = sys.argv[1]
+            input_string = argv[1]
         case _:
             raise AssertionError("more than one argumet is provided")
     return input_string
