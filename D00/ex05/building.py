@@ -32,17 +32,17 @@ def main():
         print(
             "The text contains "
             + str(sum)
-            + "characters:\n"
+            + " characters:\n"
             + str(upper)
-            + "upper letters"
+            + " upper letters\n"
             + str(lower)
-            + "upper letters"
+            + " lower letters\n"
             + str(punctuation)
-            + "punctuation mark"
+            + " punctuation mark\n"
             + str(space)
-            + "spaces"
+            + " spaces\n"
             + str(digit)
-            + "digits"
+            + " digits"
         )
     except AssertionError as e:
         print(f"AssertionError: {e}")
