@@ -51,6 +51,9 @@ def cut_grey_image(
 
 def main():
     img = ft_load("animal.jpeg")
+    if len(img) == 0:
+        print("Ft_load failed")
+        return
     print(img)
     print(f"Y = {np.shape(img)[0]}")
     print(f"X = {np.shape(img)[1]}")
@@ -58,6 +61,7 @@ def main():
     finalImage = cut_grey_image(img, 50, 400, 400)
     print(f"New shape after slicing= {np.shape(finalImage)}")
     plt.imshow(finalImage, cmap='gray', vmin=0, vmax=255)
+    print(finalImage)
     plt.show()
 
 

@@ -17,6 +17,8 @@ def ft_load(path: str) -> np.array:
         print(f"FileNotFoundError: {fnfe}")
     except AttributeError as ae:
         print(f"AttributeError: {ae}")
+    except PermissionError as pe:
+        print(f"PermissionError: {pe}")
     except PIL.UnidentifiedImageError as ui:
         print(f"Unvalid file format: {ui}")
     return []

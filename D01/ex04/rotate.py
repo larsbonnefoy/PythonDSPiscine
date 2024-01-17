@@ -42,6 +42,9 @@ def ft_transpose(img: np.array) -> np.array:
 
 def main():
     img = ft_load("animal.jpeg")
+    if len(img) == 0:
+        print("ft_load failed")
+        return
     print(img)
     print(f"Y = {np.shape(img)[0]}")
     print(f"X = {np.shape(img)[1]}")
@@ -51,6 +54,7 @@ def main():
     # print(transpose_image)
     print(f"New shape after transpose = {np.shape(transpose_image)}")
     plt.imshow(transpose_image, cmap='gray', vmin=0, vmax=255)
+    print(transpose_image)
     plt.show()
 
 
