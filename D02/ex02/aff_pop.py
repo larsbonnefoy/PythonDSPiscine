@@ -16,7 +16,7 @@ def main():
     plt.xlabel('Year')
     plt.ylabel('Population')
     plt.xlim(1800, 2050)
-    plt.xticks(range(1800, 2040 + 1, 40))
+    plt.xticks(range(1800, 2050, 40))
     plt.yticks([20000000, 40000000, 60000000], ['20M', '40M', '60M'])
     plt.legend(loc='lower right')
     plt.show()
