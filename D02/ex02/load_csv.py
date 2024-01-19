@@ -2,6 +2,9 @@ import pandas as pd
 
 
 def load(path: str) -> pd.core.frame.DataFrame:
+    """
+    Loads csv into pandas data frame
+    """
     try:
         df = pd.read_csv(path)
         return df

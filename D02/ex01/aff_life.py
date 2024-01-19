@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 
 
 def main():
+    """
+    Loads life_expectancy.csv and displays it
+    """
     df = load("life_expectancy_years.csv")
     select_contr = df.loc[df['country'] == 'Belgium']
     select_dates = [int(x) for x in df.keys()[1:]]
@@ -17,6 +20,9 @@ def main():
 
 
 def second_solution():
+    """
+        Other solution to exercice
+    """
     df = load("life_expectancy_years.csv")
     country_data = df[df['country'] == 'Belgium']
     # extract data colums exluding 'country'
@@ -34,11 +40,6 @@ def second_solution():
     plt.ylabel('Life Expectancy')
     plt.grid(True)
     plt.show()
-
-
-
-
-
 
 
 if __name__ == "__main__":

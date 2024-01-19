@@ -2,6 +2,9 @@ import pandas as pd
 
 
 def load(path: str) -> pd.core.frame.DataFrame:
+    """
+    Loads file given by path into csv
+    """
     try:
         df = pd.read_csv(path)
         print(df.shape)

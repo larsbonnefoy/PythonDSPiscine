@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 
 
 def main():
+    """
+    Displays Population of france and beligum
+    """
     df = load("population_total.csv")
     x_val = pd.to_numeric(df.columns[1:])
     data = df[(df['country'] == 'France') | (df['country'] == 'Belgium')]
